@@ -1,0 +1,13 @@
+<web-app>
+	
+	<servlet>
+		<servlet-name>podi</servlet-name>
+		<servlet-class>flames.flame</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>podi</servlet-name>
+		<url-pattern>/simple</url-pattern>
+	</servlet-mapping>
+
+</web-app>
