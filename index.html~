@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+
+
+	<title>Flames</title>
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/fancyInput.css">
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+	<script src="http://use.edgefonts.net/league-gothic.js"></script>
+	
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div id='wrap'>
+
+<h1 >Flames</h1>
+		
+	<form method="get" action="simple">		
+		
+		<div id='content'>
+		
+
+
+
+			<section class='input'>
+				<div>
+					<input type="text" name="girl"> 
+				</div>
+			</section>
+			</div>
+			
+			
+			<br> <br><br><br><br><br><br>
+			
+			<div id='content'>
+			
+			<section class='input'>
+				<div>
+					<input type="text" name="boy"> 
+				</div>
+			</section>
+			
+			
+			</div>
+			
+			<br> <br><br> <br>
+			
+			<a href="simple">Reveal :P</a>	
+			
+			</form>		
+			
+			
+	<script src='js/fancyInput.js'></script>
+	<script>
+		$('section :input').val('').fancyInput()[0].focus();
+		
+		// Everything below is only for the DEMO
+		
+		function init(str){
+			var input = $('section input').val('')[0],
+				s = 'Who?'.split('').reverse(),
+				len = s.length-1,
+				e = $.Event('keypress');
+				
+						var input1 = $('section input').val('')[1],
+				s1 = 'Partner?!'.split('').reverse(),
+				len1 = s1.length-1,
+				e1 = $.Event('keypress');
+							
+			
+			var	initInterval = setInterval(function(){
+					if( s.length ){
+						var c = s.pop();
+						fancyInput.writer(c, input, len-s.length).setCaret(input);
+						input.value += c;
+						//e.charCode = c.charCodeAt(0);
+						//input.trigger(e);
+						
+					}
+					else clearInterval(initInterval);
+			},150);
+			
+				var	initInterval1 = setInterval(function(){
+					if( s1.length ){
+						var c1 = s1.pop();
+						fancyInput.writer(c1, input1, len1-s1.length).setCaret(input1);
+						input1.value += c1;
+						//e.charCode = c.charCodeAt(0);
+						//input.trigger(e);
+						
+					}
+					else clearInterval(initInterval1);
+			},150);
+			
+			
+			
+		}
+		
+		init();
+		
+		$('menu').on('click', 'button', toggleEffect);
+		$('menu.radio').on('change', 'input', changeForm).find('input:first').prop('checked',true).trigger('change');
+		
+		// change effects
+		 function toggleEffect(num){
+			var className = '';
+				idx = $(this).index() + 1,
+				$fancyInput = $('.fancyInput');
+
+			if( idx > 1 )
+				className = 'effect' + idx;
+
+			$('#content').prop('class', className);
+			$fancyInput.find(':input')[0].focus(); $fancyInput.find(':input')[1].focus();
+			
+
+		} 
+		
+		function changeForm(e){
+			// radio buttons stuff
+			var page = this.value,
+				highlight = $(e.delegateTarget).find('> div'),
+				label = $(this.parentNode),
+				marginLeft = parseInt( label.css('margin-left') , 10 ),
+				xPos;
+				
+			highlight.css({'left':label.position().left + marginLeft, 'width':label.width() });
+			
+			// page change stuff
+			xPos = '-' + label.index() * 50;
+			$('#content').css( 'transform', 'translateX(' + xPos + '%)' );
+			
+			setTimeout(function(){
+				$('#content').find('.' + page  + ' :input')[0].focus(); 
+			}, 100);
+		}
+		
+		
+	</script>
+</body> 
+</html>

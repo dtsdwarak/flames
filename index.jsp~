@@ -1,0 +1,38 @@
+560                                                        <!DOCTYPE html>
+<html>
+<%@ page import="flames.flame" %>
+    <head>
+       
+
+        <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/fancyInput.css">
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+     <script src="http://use.edgefonts.net/league-gothic.js"></script>
+<!-- JavaScript includes -->
+		<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+		<script src="js/jquery.shuffleLetters.js"></script>
+        <script src="js/script.js"></script>
+
+    </head>
+    
+    <body>
+		
+		<!-- <div id="disp">This is a Tutorialzine Demo!</div> -->
+
+
+	<div id="disp">
+	
+	<%= flame.result %>
+	Getting Married!
+
+<!--  -->
+
+
+</div>
+
+       
+        
+           
+    </body>
+</html>
+
